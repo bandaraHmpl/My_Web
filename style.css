@@ -26,7 +26,12 @@ body.dark section {
 }
 
 body.dark h2 {
-    border-color: #00bfff;
+    border-image: linear-gradient(135deg, #00bfff, #522377) 1;
+}
+
+h2 {
+    border-bottom: 2px solid;
+    border-image: linear-gradient(135deg, #00bfff, #522377) 1;
 }
 
 .toggle-container {
@@ -76,7 +81,7 @@ input[type="checkbox"] {
 }
 
 input:checked + .slider {
-    background-color: #00bfff;
+    background: linear-gradient(135deg, #00bfff, #522377);
 }
 
 input:checked + .slider::before {
@@ -88,7 +93,7 @@ header {
     justify-content: space-between;
     text-align: center;
     padding: 2rem 1rem;
-    background: var(--header-bg, #522377);
+    background: linear-gradient(135deg, #00bfff, #522377);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -96,11 +101,11 @@ header {
 }
 
 .logo h1 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Dancing Script', cursive;
     margin: 0;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     transition: color 0.3s;
 }
@@ -163,7 +168,9 @@ nav a:hover {
 }
 
 .home-container .small-description span {
-    color: #00bfff;
+    background: linear-gradient(135deg, #00bfff, #522377);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .home-container .small-description p {
@@ -174,7 +181,7 @@ nav a:hover {
 
 .home-container .btn {
     display: inline-block;
-    background-color: #00bfff;
+    background: linear-gradient(135deg, #00bfff, #522377);
     color: white;
     padding: 0.6rem 1.2rem;
     border-radius: 6px;
@@ -183,11 +190,11 @@ nav a:hover {
 }
 
 .home-container .btn:hover {
-    background-color: #0095cc;
+    background: linear-gradient(135deg, #0095cc, #522377);
 }
 
 body.dark .home-container .btn {
-    background-color: #00bfff;
+    background: linear-gradient(135deg, #00bfff, #522377);
 }
 
 body.dark .home-container .photo img {
@@ -229,7 +236,8 @@ section {
 }
 
 h2 {
-    border-bottom: 2px solid #00bfff;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(135deg, #00bfff, #522377) 1;
     display: inline-block;
     margin-bottom: 1rem;
 }
@@ -250,7 +258,9 @@ body.dark .project {
 .project a {
     display: inline-block;
     margin-top: 0.5rem;
-    color: #00bfff;
+    background: linear-gradient(135deg, #00bfff, #522377);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .project a:hover {
@@ -258,7 +268,9 @@ body.dark .project {
 }
 
 #contact a {
-    color: #00bfff;
+    background: linear-gradient(135deg, #00bfff, #522377);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 footer {
