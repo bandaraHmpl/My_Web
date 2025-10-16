@@ -6,6 +6,11 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
+html {
+    scroll-padding-top: 80px;
+    scroll-behavior: smooth;
+}
+
 body.light {
     background-color: #f8f9fb;
     color: #222;
@@ -14,6 +19,14 @@ body.light {
 body.dark {
     background-color: #1e1e1e;
     color: #f0f0f0;
+}
+
+body.dark section {
+    color: #e0e0e0;
+}
+
+body.dark h2 {
+    border-color: #00bfff;
 }
 
 .toggle-container {
@@ -62,6 +75,10 @@ input[type="checkbox"] {
     border-radius: 50%;
 }
 
+input:checked + .slider {
+    background-color: #00bfff;
+}
+
 input:checked + .slider::before {
     transform: translateX(20px);
 }
@@ -71,7 +88,7 @@ header {
     justify-content: space-between;
     text-align: center;
     padding: 2rem 1rem;
-    background: var(--header-bg, #0367A6);
+    background: var(--header-bg, #522377);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -79,9 +96,13 @@ header {
 }
 
 .logo h1 {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
-    font-size: 1.5rem;
-    color: #00bfff;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: color 0.3s;
 }
 
 nav {
@@ -101,9 +122,109 @@ nav a:hover {
     color: #00bfff;
 }
 
+.home {
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 100%;
+}
+
+.home-container .photo img {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.home-container .photo img:hover {
+    transform: scale(1.05);
+}
+
+.home-container .small-description {
+    flex: 1 1 450px;
+}
+
+.home-container .small-description h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.home-container .small-description span {
+    color: #00bfff;
+}
+
+.home-container .small-description p {
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.home-container .btn {
+    display: inline-block;
+    background-color: #00bfff;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.home-container .btn:hover {
+    background-color: #0095cc;
+}
+
+body.dark .home-container .btn {
+    background-color: #00bfff;
+}
+
+body.dark .home-container .photo img {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-media {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.social-media a img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.social-media a img:hover {
+    transform: scale(1.1);
+}
+
+body.dark .social-media a img {
+    filter: invert(1);
+}
+
 section {
-    padding: 2rem 1rem;
-    max-width: 800px;
+    padding: 2rem 20rem;
+    max-width: 100%;
     margin: auto;
 }
 
@@ -146,9 +267,17 @@ footer {
     font-size: 0.9rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+    .home-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .home-container .photo img {
+        width: 200px;
+        height: 200px;
+    }
     nav {
-        display: flex;
+        margin-top: 0.5rem;
         flex-direction: column;
         gap: 0.5rem;
     }
