@@ -18,6 +18,7 @@
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
             <a href="https://github.com/bandaraHmpl" target="_blank">GitHub</a>
+            <button id="theme-toggle" class="theme-btn">🌙</button>
         </nav>
     </header>
 
@@ -78,27 +79,32 @@
         <p>Email: <a href="mailto:lakshanbandara455@gamil.com">lakshanbandara455@gamil.com</a></p>
         <p>LinkedIn: <a href="https://linkedin.com/in/bandaraHmpl" target="_blank">linkedin.com/in/bandaraHmpl</a></p>
     </section>
-    <div class="toggle-container">
-        <label class="switch">
-            <input type="checkbox" id="mode-toggle">
-            <span class="slider"></span>
-        </label>
-        <span>Dark Mode</span>
-    </div>
     <footer>
         <p>© 2025 bandaraHmpl | Built with 💻 HTML & CSS</p>
     </footer>
     <script>
-        const toggle = document.getElementById('mode-toggle');
+        const themeBtn = document.getElementById('theme-toggle');
         const body = document.body;
 
-        toggle.addEventListener('change', () => {
-            if(toggle.checked){
-                body.classList.remove('light');
-                body.classList.add('dark');
-            }else{
-                body.classList.remove('dark');
-                body.classList.add('light');
+        if(localStorage.getItem('theme') === 'dark'){
+            body.classList.add('dark');
+            body.classList.remove('light');
+            themeBtn.textContent = '🌞';
+        }else{
+            body.classList.add('light');
+            themeBtn.textContent = '🌙';
+        }
+
+        themeBtn.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            body.classList.toggle('light');
+
+            if(body.classList.contains('dark')){
+                themeBtn.textContent = '🌞';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeBtn.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
             }
         });
     </script>
