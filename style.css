@@ -117,7 +117,7 @@ nav a:hover {
     backdrop-filter: blur(12px);
     box-shadow: 0 8px 25px rgba(0, 191, 255, 0.15);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
-    animation: floatUpDown 3s ease-in-out infinite alternate, fadeInUp 1.2s ease-in-out;
+    animation: floatUpDown 6s ease-in-out infinite alternate, fadeInUp 1.2s ease-in-out;
 }
 
 .home-container .photo img:hover {
