@@ -98,10 +98,14 @@ nav a:hover {
 .home-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 4rem;
     max-width: 100%;
+}
+
+.home-container .photo {
+    margin-right: 3rem;
 }
 
 .home-container .photo img {
