@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="light">
   <header>
@@ -149,9 +150,125 @@
 
   <!-- CONTACT SECTION -->
   <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:lakshanbandara455@gmail.com">lakshanbandara455@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/bandaraHmpl" target="_blank">linkedin.com/in/bandaraHmpl</a></p>
+    <div class="contact-container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">Let's work together to bring your ideas to life</p>
+      
+      <div class="contact-content">
+        <!-- Contact Information Cards -->
+        <div class="contact-info">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="info-content">
+              <h3>Email</h3>
+              <p>lakshanbandara455@gmail.com</p>
+              <a href="mailto:lakshanbandara455@gmail.com" class="info-link">Send Email</a>
+            </div>
+          </div>
+          
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="info-content">
+              <h3>Phone</h3>
+              <p>+94 71 378 5398</p>
+              <a href="https://wa.me/+94713785398" target="_blank" class="info-link">WhatsApp</a>
+            </div>
+          </div>
+          
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info-content">
+              <h3>Location</h3>
+              <p>University of Ruhuna</p>
+              <p>Sri Lanka</p>
+            </div>
+          </div>
+          
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="info-content">
+              <h3>Availability</h3>
+              <p>Mon - Fri: 9AM - 6PM</p>
+              <p>Response within 24 hours</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <div class="contact-form-container">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required>
+              <i class="fas fa-user input-icon"></i>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required>
+              <i class="fas fa-envelope input-icon"></i>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required>
+              <i class="fas fa-tag input-icon"></i>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+              <i class="fas fa-comment input-icon textarea-icon"></i>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+              <span class="btn-text">Send Message</span>
+              <div class="btn-loader">
+                <div class="loader"></div>
+              </div>
+              <i class="fas fa-paper-plane btn-icon"></i>
+            </button>
+          </form>
+          
+          <div class="form-success" id="formSuccess">
+            <i class="fas fa-check-circle"></i>
+            <h3>Message Sent Successfully!</h3>
+            <p>Thank you for reaching out. I'll get back to you soon.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Quick Social Links -->
+      <div class="social-contact">
+        <h3>Connect with me</h3>
+        <div class="social-buttons">
+          <a href="https://linkedin.com/in/bandaraHmpl" target="_blank" class="social-btn linkedin">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/bandaraHmpl" target="_blank" class="social-btn github">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+          </a>
+          <a href="https://www.facebook.com/pradeep.lakshan.92560" target="_blank" class="social-btn facebook">
+            <i class="fab fa-facebook"></i>
+            <span>Facebook</span>
+          </a>
+          <a href="https://www.youtube.com/@hmplbandara" target="_blank" class="social-btn youtube">
+            <i class="fab fa-youtube"></i>
+            <span>YouTube</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer>
@@ -160,49 +277,6 @@
 
   <button id="backToTop" class="back-btn">⬆</button>
 
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <script>
-    // Theme Toggle
-    const themeBtn = document.getElementById('theme-toggle');
-    const body = document.body;
-    if(localStorage.getItem('theme') === 'dark'){
-      body.classList.add('dark');
-      themeBtn.textContent = '🌞';
-    }
-    themeBtn.addEventListener('click', () => {
-      body.classList.toggle('dark');
-      localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
-      themeBtn.textContent = body.classList.contains('dark') ? '🌞' : '🌙';
-    });
-
-    // Scroll Reveal
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
-      });
-    });
-    document.querySelectorAll('section').forEach(sec => observer.observe(sec));
-
-    // Back to Top Button
-    const btn = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      btn.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-    btn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    // Mobile menu functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const mobileMenuBtn = document.createElement('button');
-      mobileMenuBtn.className = 'mobile-menu-btn';
-      mobileMenuBtn.innerHTML = '☰';
-      document.querySelector('header').appendChild(mobileMenuBtn);
-      
-      mobileMenuBtn.addEventListener('click', function() {
-        document.querySelector('nav').classList.toggle('mobile-open');
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
