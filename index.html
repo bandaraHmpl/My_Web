@@ -3,19 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>bandaraHmpl | Portfolio</title>
+  <title>Pradeep Lakshan - Computer Science Undergraduate | Portfolio</title>
+  <meta name="description" content="Pradeep Lakshan - Computer Science Undergraduate at University of Ruhuna | Web Developer | Software Engineer">
+  <meta name="keywords" content="web developer, software engineer, portfolio, sri lanka, university of ruhuna, computer science">
+  <meta name="author" content="Pradeep Lakshan">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="light">
+  <!-- Loading Screen -->
+  <div class="loading-screen">
+    <div class="loader"></div>
+  </div>
+
   <header>
     <div class="logo"><h1>bandaraHmpl</h1></div>
     <nav>
       <a href="#home">Home</a>
       <a href="#about">About</a>
+      <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#achievements">Achievements</a>
       <a href="#contact">Contact</a>
       <a href="https://github.com/bandaraHmpl" target="_blank">GitHub</a>
       <button id="theme-toggle" class="theme-btn">🌙</button>
@@ -26,23 +36,23 @@
   <section id="home" class="home">
     <div class="home-container">
       <div class="photo">
-        <img src="pradeep-lakshan.png" alt="Pradeep Lakshan">
+        <img src="pradeep-lakshan.png" alt="Pradeep Lakshan" loading="lazy">
       </div>
       <div class="intro">
-        <h2>Hi, I'm <span>Pradeep Lakshan</span></h2>
+        <h2>Hi, I'm <span class="txt-type" data-wait="3000" data-words='["Pradeep Lakshan", "a Developer", "a Problem Solver"]'></span></h2>
         <p>
           💻 A <b>Computer Science undergraduate</b> at the <b>University of Ruhuna</b>.<br>
           🚀 Passionate about <b>software and web development</b>, <b>problem-solving</b>, and <b>creative design</b>.<br>
           🌱 Exploring technologies like <b>AI</b>, <b>Data Science</b>, and <b>Project Management</b>.<br>
           ☕ I love balancing <b>code and creativity</b> in everything I do.
         </p>
-        <a href="#projects" class="btn">View My Projects</a>
+        <a href="#projects" class="btn pulse">View My Projects</a>
         <div class="social-media">
-          <a href="https://wa.me/+94713785398" target="_blank"><i class="fab fa-whatsapp"></i></a>
-          <a href="https://www.youtube.com/@hmplbandara" target="_blank"><i class="fab fa-youtube"></i></a>
-          <a href="https://www.facebook.com/pradeep.lakshan.92560" target="_blank"><i class="fab fa-facebook"></i></a>
-          <a href="https://linkedin.com/in/bandaraHmpl" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://tiktok.com/@pradeep.lakshan192" target="_blank"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/+94713785398" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.youtube.com/@hmplbandara" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.facebook.com/pradeep.lakshan.92560" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="https://linkedin.com/in/bandaraHmpl" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://tiktok.com/@pradeep.lakshan192" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
         </div>
       </div>
     </div>
@@ -63,6 +73,18 @@
           I'm seeking internship opportunities to gain real-world experience and contribute to meaningful projects.
           My vision is to grow as a well-rounded technologist who combines logic, design, and innovation.
         </p>
+        
+        <!-- Education Timeline -->
+        <div class="education-timeline">
+          <h3>🎓 Education</h3>
+          <div class="timeline-item">
+            <div class="timeline-date">2022 - Present</div>
+            <div class="timeline-content">
+              <h4>University of Ruhuna</h4>
+              <p>BSc in Computer Science</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- RIGHT SIDE: Tech Arsenal -->
@@ -126,24 +148,139 @@
     </div>
   </section>
 
+  <!-- SKILLS SECTION -->
+  <section id="skills">
+    <h2 class="section-title">🚀 Technical Skills</h2>
+    
+    <div class="skills-container">
+      <div class="skill-category">
+        <h3>💻 Programming</h3>
+        <div class="skill">
+          <span>JavaScript</span>
+          <div class="progress-bar">
+            <div class="progress" data-width="85"></div>
+          </div>
+          <span class="skill-percent">85%</span>
+        </div>
+        <div class="skill">
+          <span>HTML/CSS</span>
+          <div class="progress-bar">
+            <div class="progress" data-width="90"></div>
+          </div>
+          <span class="skill-percent">90%</span>
+        </div>
+        <div class="skill">
+          <span>C Programming</span>
+          <div class="progress-bar">
+            <div class="progress" data-width="80"></div>
+          </div>
+          <span class="skill-percent">80%</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3>🛠 Tools & Technologies</h3>
+        <div class="skill">
+          <span>Git & GitHub</span>
+          <div class="progress-bar">
+            <div class="progress" data-width="75"></div>
+          </div>
+          <span class="skill-percent">75%</span>
+        </div>
+        <div class="skill">
+          <span>Linux</span>
+          <div class="progress-bar">
+            <div class="progress" data-width="70"></div>
+          </div>
+          <span class="skill-percent">70%</span>
+        </div>
+        <div class="skill">
+          <span>VS Code</span>
+          <div class="progress-bar">
+            <div class="progress" data-width="85"></div>
+          </div>
+          <span class="skill-percent">85%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PROJECTS SECTION -->
   <section id="projects">
-    <h2>Projects</h2>
+    <h2 class="section-title">💼 Projects</h2>
     <div class="project-grid">
       <div class="project-card">
+        <div class="project-icon">
+          <i class="fas fa-globe"></i>
+        </div>
         <h3>Project 01 – My Web</h3>
         <p>A simple responsive portfolio site built with HTML, CSS, and JavaScript.</p>
-        <a href="https://github.com/bandaraHmpl/project-01" target="_blank">View on GitHub</a>
+        <div class="project-tech">
+          <span class="tech-tag">HTML</span>
+          <span class="tech-tag">CSS</span>
+          <span class="tech-tag">JavaScript</span>
+        </div>
+        <a href="https://github.com/bandaraHmpl/project-01" target="_blank" class="project-link">View on GitHub</a>
       </div>
       <div class="project-card">
+        <div class="project-icon">
+          <i class="fas fa-tasks"></i>
+        </div>
         <h3>Project 02 – ToDo App</h3>
         <p>A task management app that helps organize daily activities efficiently.</p>
-        <a href="#">Coming Soon</a>
+        <div class="project-tech">
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">LocalStorage</span>
+          <span class="tech-tag">CSS</span>
+        </div>
+        <a href="#" class="project-link coming-soon">Coming Soon</a>
       </div>
       <div class="project-card">
+        <div class="project-icon">
+          <i class="fas fa-palette"></i>
+        </div>
         <h3>Project 03 – Creative Design</h3>
         <p>Graphic design and video editing work combining creativity with tech.</p>
-        <a href="#">Coming Soon</a>
+        <div class="project-tech">
+          <span class="tech-tag">AutoCAD</span>
+          <span class="tech-tag">Graphic Design</span>
+          <span class="tech-tag">Video Editing</span>
+        </div>
+        <a href="#" class="project-link coming-soon">Coming Soon</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS SECTION -->
+  <section id="achievements">
+    <h2 class="section-title">🏆 Achievements</h2>
+    
+    <div class="achievement-grid">
+      <div class="achievement-card">
+        <div class="achievement-icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3>University Projects</h3>
+        <p>Completed multiple academic projects with excellent grades in Data Structures and Algorithms.</p>
+        <span class="achievement-date">2023</span>
+      </div>
+      
+      <div class="achievement-card">
+        <div class="achievement-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3>Team Leadership</h3>
+        <p>Led team projects in university, coordinating between members and ensuring project success.</p>
+        <span class="achievement-date">2023</span>
+      </div>
+      
+      <div class="achievement-card">
+        <div class="achievement-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h3>Self-Taught Developer</h3>
+        <p>Learned web development independently while pursuing degree, building multiple projects.</p>
+        <span class="achievement-date">2022-Present</span>
       </div>
     </div>
   </section>
@@ -151,7 +288,7 @@
   <!-- CONTACT SECTION -->
   <section id="contact">
     <div class="contact-container">
-      <h2 class="section-title">Get In Touch</h2>
+      <h2 class="section-title">📞 Get In Touch</h2>
       <p class="section-subtitle">Let's work together to bring your ideas to life</p>
       
       <div class="contact-content">
@@ -272,10 +409,13 @@
   </section>
 
   <footer>
-    <p>© 2025 bandaraHmpl | Built with 💻 HTML, CSS & ❤️</p>
+    <div class="footer-content">
+      <p>© 2025 bandaraHmpl | Built with 💻 HTML, CSS & JavaScript</p>
+      <p class="footer-sub">Computer Science Undergraduate | University of Ruhuna</p>
+    </div>
   </footer>
 
-  <button id="backToTop" class="back-btn">⬆</button>
+  <button id="backToTop" class="back-btn" aria-label="Back to top">⬆</button>
 
   <script src="script.js"></script>
 </body>

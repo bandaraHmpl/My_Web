@@ -1,3 +1,14 @@
+// Loading Screen
+window.addEventListener('load', function() {
+  const loadingScreen = document.querySelector('.loading-screen');
+  setTimeout(() => {
+    loadingScreen.classList.add('fade-out');
+    setTimeout(() => {
+      loadingScreen.style.display = 'none';
+    }, 500);
+  }, 1000);
+});
+
 // Theme Toggle
 const themeBtn = document.getElementById('theme-toggle');
 const body = document.body;
@@ -8,17 +19,96 @@ if (localStorage.getItem('theme') === 'dark') {
   themeBtn.textContent = '🌞';
 }
 
+// Check system preference if no saved theme
+if (!localStorage.getItem('theme') && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  body.classList.add('dark');
+  themeBtn.textContent = '🌞';
+}
+
 themeBtn.addEventListener('click', () => {
   body.classList.toggle('dark');
   localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
   themeBtn.textContent = body.classList.contains('dark') ? '🌞' : '🌙';
 });
 
+// Listen for system theme changes
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+  if (!localStorage.getItem('theme')) {
+    if (e.matches) {
+      body.classList.add('dark');
+      themeBtn.textContent = '🌞';
+    } else {
+      body.classList.remove('dark');
+      themeBtn.textContent = '🌙';
+    }
+  }
+});
+
+// TypeWriter Effect
+class TypeWriter {
+  constructor(txtElement, words, wait = 3000) {
+    this.txtElement = txtElement;
+    this.words = words;
+    this.txt = '';
+    this.wordIndex = 0;
+    this.wait = parseInt(wait, 10);
+    this.type();
+    this.isDeleting = false;
+  }
+
+  type() {
+    // Current index of word
+    const current = this.wordIndex % this.words.length;
+    // Get full text of current word
+    const fullTxt = this.words[current];
+
+    // Check if deleting
+    if (this.isDeleting) {
+      // Remove char
+      this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+      // Add char
+      this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    // Insert txt into element
+    this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+
+    // Initial Type Speed
+    let typeSpeed = 100;
+
+    if (this.isDeleting) {
+      typeSpeed /= 2;
+    }
+
+    // If word is complete
+    if (!this.isDeleting && this.txt === fullTxt) {
+      // Make pause at end
+      typeSpeed = this.wait;
+      // Set delete to true
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+      this.isDeleting = false;
+      // Move to next word
+      this.wordIndex++;
+      // Pause before start typing
+      typeSpeed = 500;
+    }
+
+    setTimeout(() => this.type(), typeSpeed);
+  }
+}
+
 // Scroll Reveal Animation
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('show');
+      
+      // Animate progress bars when skills section is visible
+      if (entry.target.id === 'skills') {
+        animateProgressBars();
+      }
     }
   });
 }, {
@@ -192,12 +282,20 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Add floating animation to info cards
-  const infoCards = document.querySelectorAll('.info-card');
+  const infoCards = document.querySelectorAll('.info-card, .achievement-card, .project-card');
   
   infoCards.forEach((card, index) => {
     card.style.animationDelay = `${index * 0.1}s`;
     card.classList.add('float-in');
   });
+
+  // Initialize TypeWriter
+  const txtElement = document.querySelector('.txt-type');
+  if (txtElement) {
+    const words = JSON.parse(txtElement.getAttribute('data-words'));
+    const wait = txtElement.getAttribute('data-wait');
+    new TypeWriter(txtElement, words, wait);
+  }
 
   // Initialize functions
   handleScroll();
@@ -216,11 +314,22 @@ document.addEventListener('DOMContentLoaded', function() {
       if (target) {
         const headerHeight = header.offsetHeight;
         const targetPosition = target.offsetTop - headerHeight;
-        window.scrollTo(0, targetPosition);
+        setTimeout(() => {
+          window.scrollTo(0, targetPosition);
+        }, 100);
       }
     }
   });
 });
+
+// Animate Progress Bars
+function animateProgressBars() {
+  const progressBars = document.querySelectorAll('.progress');
+  progressBars.forEach(bar => {
+    const width = bar.getAttribute('data-width') + '%';
+    bar.style.width = width;
+  });
+}
 
 // Add loading animation for images
 document.addEventListener('DOMContentLoaded', function() {
@@ -245,3 +354,18 @@ document.querySelectorAll('img').forEach(img => {
     console.warn('Image failed to load:', this.src);
   });
 });
+
+// Add intersection observer for progress bars
+const skillsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateProgressBars();
+    }
+  });
+}, { threshold: 0.5 });
+
+// Observe skills section
+const skillsSection = document.getElementById('skills');
+if (skillsSection) {
+  skillsObserver.observe(skillsSection);
+}
