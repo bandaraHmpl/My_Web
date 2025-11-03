@@ -30,23 +30,38 @@
       <a href="https://github.com/bandaraHmpl" target="_blank">GitHub</a>
       <button id="theme-toggle" class="theme-btn">🌙</button>
     </nav>
+    <button class="mobile-menu-btn" aria-label="Toggle navigation menu">☰</button>
   </header>
 
   <!-- HOME SECTION -->
   <section id="home" class="home">
     <div class="home-container">
-      <div class="photo">
-        <img src="pradeep-lakshan.png" alt="Pradeep Lakshan" loading="lazy">
-      </div>
-      <div class="intro">
-        <h2>Hi, I'm <span class="txt-type" data-wait="3000" data-words='["Pradeep Lakshan", "a Developer", "a Problem Solver"]'></span></h2>
-        <p>
-          💻 A <b>Computer Science undergraduate</b> at the <b>University of Ruhuna</b>.<br>
-          🚀 Passionate about <b>software and web development</b>, <b>problem-solving</b>, and <b>creative design</b>.<br>
-          🌱 Exploring technologies like <b>AI</b>, <b>Data Science</b>, and <b>Project Management</b>.<br>
-          ☕ I love balancing <b>code and creativity</b> in everything I do.
+      <div class="hero-content">
+        <div class="greeting">
+          <i class="fas fa-code"></i>
+          Hello! I'm
+        </div>
+        
+        <h1>
+          <span class="typing-container" id="typing-text"></span>
+          <span class="cursor" id="cursor"></span>
+        </h1>
+        
+        <p class="tagline">
+          A <span class="highlight">Computer Science</span> undergraduate at the <span class="highlight">University of Ruhuna</span>, 
+          passionate about <span class="highlight">full-stack development</span> and creating 
+          <span class="highlight">digital experiences</span> where code meets creativity.
         </p>
-        <a href="#projects" class="btn pulse">View My Projects</a>
+        
+        <div class="cta-buttons">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fas fa-rocket"></i> View My Work
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <i class="fas fa-paper-plane"></i> Get In Touch
+          </a>
+        </div>
+
         <div class="social-media">
           <a href="https://wa.me/+94713785398" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
           <a href="https://www.youtube.com/@hmplbandara" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
@@ -54,6 +69,17 @@
           <a href="https://linkedin.com/in/bandaraHmpl" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
           <a href="https://tiktok.com/@pradeep.lakshan192" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
         </div>
+      </div>
+
+      <div class="photo">
+        <img src="pradeep-lakshan.png" alt="Pradeep Lakshan" loading="lazy">
+      </div>
+
+      <!-- Animated Background Elements -->
+      <div class="floating-elements">
+        <div class="floating-element element-1"></div>
+        <div class="floating-element element-2"></div>
+        <div class="floating-element element-3"></div>
       </div>
     </div>
   </section>

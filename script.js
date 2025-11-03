@@ -44,58 +44,44 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e =
   }
 });
 
-// TypeWriter Effect
-class TypeWriter {
-  constructor(txtElement, words, wait = 3000) {
-    this.txtElement = txtElement;
-    this.words = words;
-    this.txt = '';
-    this.wordIndex = 0;
-    this.wait = parseInt(wait, 10);
-    this.type();
-    this.isDeleting = false;
-  }
+// Typing Animation for Home Section
+const texts = [
+  "Pradeep Lakshan",
+  "a Developer",
+  "a Problem Solver",
+  "a Creative Thinker"
+];
+const typingSpeed = 100;
+const erasingSpeed = 50;
+const newTextDelay = 2000;
 
-  type() {
-    // Current index of word
-    const current = this.wordIndex % this.words.length;
-    // Get full text of current word
-    const fullTxt = this.words[current];
+let textArrayIndex = 0;
+let charIndex = 0;
+let isTyping = true;
 
-    // Check if deleting
-    if (this.isDeleting) {
-      // Remove char
-      this.txt = fullTxt.substring(0, this.txt.length - 1);
+function type() {
+  const typingElement = document.getElementById('typing-text');
+  if (!typingElement) return;
+
+  if (isTyping) {
+    if (charIndex < texts[textArrayIndex].length) {
+      typingElement.textContent += texts[textArrayIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(type, typingSpeed);
     } else {
-      // Add char
-      this.txt = fullTxt.substring(0, this.txt.length + 1);
+      isTyping = false;
+      setTimeout(type, newTextDelay);
     }
-
-    // Insert txt into element
-    this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
-
-    // Initial Type Speed
-    let typeSpeed = 100;
-
-    if (this.isDeleting) {
-      typeSpeed /= 2;
+  } else {
+    if (charIndex > 0) {
+      typingElement.textContent = texts[textArrayIndex].substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(type, erasingSpeed);
+    } else {
+      isTyping = true;
+      textArrayIndex = (textArrayIndex + 1) % texts.length;
+      setTimeout(type, typingSpeed + 1000);
     }
-
-    // If word is complete
-    if (!this.isDeleting && this.txt === fullTxt) {
-      // Make pause at end
-      typeSpeed = this.wait;
-      // Set delete to true
-      this.isDeleting = true;
-    } else if (this.isDeleting && this.txt === '') {
-      this.isDeleting = false;
-      // Move to next word
-      this.wordIndex++;
-      // Pause before start typing
-      typeSpeed = 500;
-    }
-
-    setTimeout(() => this.type(), typeSpeed);
   }
 }
 
@@ -136,13 +122,7 @@ backToTopBtn.onclick = () => {
 // Header Functionality
 document.addEventListener('DOMContentLoaded', function() {
   const header = document.querySelector('header');
-  const mobileMenuBtn = document.createElement('button');
-  
-  // Create mobile menu button
-  mobileMenuBtn.className = 'mobile-menu-btn';
-  mobileMenuBtn.innerHTML = '☰';
-  mobileMenuBtn.setAttribute('aria-label', 'Toggle navigation menu');
-  document.querySelector('header').appendChild(mobileMenuBtn);
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
   
   // Mobile menu functionality
   mobileMenuBtn.addEventListener('click', function() {
@@ -289,14 +269,6 @@ document.addEventListener('DOMContentLoaded', function() {
     card.classList.add('float-in');
   });
 
-  // Initialize TypeWriter
-  const txtElement = document.querySelector('.txt-type');
-  if (txtElement) {
-    const words = JSON.parse(txtElement.getAttribute('data-words'));
-    const wait = txtElement.getAttribute('data-wait');
-    new TypeWriter(txtElement, words, wait);
-  }
-
   // Initialize functions
   handleScroll();
   setActiveLink();
@@ -319,6 +291,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
       }
     }
+    
+    // Start typing animation
+    if (texts.length) setTimeout(type, 1000);
   });
 });
 
