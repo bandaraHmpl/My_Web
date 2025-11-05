@@ -188,7 +188,7 @@ nav a.active {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* ===== UPDATED HOME SECTION ===== */
+/* ===== HOME SECTION ===== */
 .home {
   position: relative;
   min-height: 100vh;
@@ -237,7 +237,7 @@ body.dark .home {
   font-size: 3.5rem;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  background: linear-gradient(45deg, var(--light), var(--primary));
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
