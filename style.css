@@ -775,6 +775,15 @@ body.dark .project-card h3 {
   border: 1px solid rgba(0,191,255,0.3);
 }
 
+.project-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
 .project-link {
   display: inline-block;
   background: linear-gradient(135deg, var(--primary), var(--secondary));
