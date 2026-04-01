@@ -332,7 +332,7 @@ if (skillsSection) {
 }
 
 // Load Projects from Backend
-const apiUrl = "https://my-web-backend-production.up.railway.app";
+const apiUrl = "https://my-web-backend-production.up.railway.app/projects";
 
 function getProjectIcon(title) {
   const lowerTitle = title.toLowerCase();
