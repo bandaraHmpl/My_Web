@@ -804,6 +804,20 @@ body.dark .project-card h3 {
   cursor: not-allowed;
 }
 
+@media (max-width: 768px) {
+  .project-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .project-link,
+  .coming-soon {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
 /* ===== ACHIEVEMENTS SECTION ===== */
 #achievements {
   padding: 4rem 10%;
