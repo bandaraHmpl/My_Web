@@ -370,6 +370,66 @@ function getTechTags(technologies) {
       .join("");
 }
 
+function createProjectGallery(images = []) {
+  if (!images || images.length === 0) {
+    return "";
+  }
+
+  const count = images.length;
+
+  if (count === 1) {
+    return `
+      <div class="project-gallery gallery-1">
+        <img src="${images[0]}" alt="Project image" class="gallery-img">
+      </div>
+    `;
+  }
+
+  if (count === 2) {
+    return `
+      <div class="project-gallery gallery-2">
+        <img src="${images[0]}" alt="Project image" class="gallery-img">
+        <img src="${images[1]}" alt="Project image" class="gallery-img">
+      </div>
+    `;
+  }
+
+  if (count === 3) {
+    return `
+      <div class="project-gallery gallery-3">
+        <img src="${images[0]}" alt="Project image" class="gallery-img big-img">
+        <img src="${images[1]}" alt="Project image" class="gallery-img">
+        <img src="${images[2]}" alt="Project image" class="gallery-img">
+      </div>
+    `;
+  }
+
+  if (count === 4) {
+    return `
+      <div class="project-gallery gallery-4">
+        <img src="${images[0]}" alt="Project image" class="gallery-img">
+        <img src="${images[1]}" alt="Project image" class="gallery-img">
+        <img src="${images[2]}" alt="Project image" class="gallery-img">
+        <img src="${images[3]}" alt="Project image" class="gallery-img">
+      </div>
+    `;
+  }
+
+  const remaining = count - 4;
+
+  return `
+    <div class="project-gallery gallery-many">
+      <img src="${images[0]}" alt="Project image" class="gallery-img">
+      <img src="${images[1]}" alt="Project image" class="gallery-img">
+      <img src="${images[2]}" alt="Project image" class="gallery-img">
+      <div class="gallery-more">
+        <img src="${images[3]}" alt="Project image" class="gallery-img">
+        <span class="more-overlay">+${remaining}</span>
+      </div>
+    </div>
+  `;
+}
+
 function loadProjects() {
   fetch(apiUrl)
       .then(res => res.json())
@@ -394,16 +454,13 @@ function loadProjects() {
                   ? `<a href="${project.liveLink}" target="_blank" class="project-link live-link">Live Preview</a>`
                   : `<span class="project-link coming-soon">Coming Soon</span>`;
 
-          const projectImage =
-              project.imageUrl && project.imageUrl.trim() !== ""
-                  ? `<img src="${project.imageUrl}" alt="${project.title}" class="project-image">`
-                  : "";
+          const projectGallery = createProjectGallery(project.images || []);
 
           container.insertAdjacentHTML(
               "beforeend",
               `
           <div class="project-card">
-            ${projectImage}
+            ${projectGallery}
             
             <div class="project-icon">
               <i class="${iconClass}"></i>

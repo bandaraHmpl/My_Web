@@ -827,6 +827,68 @@ body.dark .project-card h3 {
   display: block;
 }
 
+.project-gallery {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  height: 220px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+.gallery-1 {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.gallery-2 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.gallery-3 {
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.gallery-3 .big-img {
+  grid-row: 1 / 3;
+}
+
+.gallery-4,
+.gallery-many {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.gallery-more {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.more-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
 /* ===== ACHIEVEMENTS SECTION ===== */
 #achievements {
   padding: 4rem 10%;
