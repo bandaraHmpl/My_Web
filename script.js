@@ -487,3 +487,26 @@ function loadProjects() {
 }
 
 loadProjects();
+
+const imageModal = document.getElementById("imageModal");
+const imageModalImg = document.getElementById("imageModalImg");
+const imageModalClose = document.getElementById("imageModalClose");
+
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("gallery-img")) {
+    imageModalImg.src = e.target.src;
+    imageModal.classList.add("show");
+  }
+});
+
+imageModalClose.addEventListener("click", function () {
+  imageModal.classList.remove("show");
+  imageModalImg.src = "";
+});
+
+imageModal.addEventListener("click", function (e) {
+  if (e.target === imageModal) {
+    imageModal.classList.remove("show");
+    imageModalImg.src = "";
+  }
+});

@@ -889,6 +889,78 @@ body.dark .project-card h3 {
   border-radius: 10px;
 }
 
+.gallery-img {
+  transition: transform 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+}
+
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.image-modal.show {
+  display: flex;
+}
+
+.image-modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.gallery-img {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .image-modal {
+    padding: 12px;
+  }
+
+  .image-modal-content {
+    max-width: 95%;
+    max-height: 80%;
+    border-radius: 10px;
+  }
+
+  .image-modal-close {
+    top: 12px;
+    right: 18px;
+    font-size: 2rem;
+  }
+}
+
 /* ===== ACHIEVEMENTS SECTION ===== */
 #achievements {
   padding: 4rem 10%;
