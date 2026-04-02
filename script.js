@@ -394,10 +394,17 @@ function loadProjects() {
                   ? `<a href="${project.liveLink}" target="_blank" class="project-link live-link">Live Preview</a>`
                   : `<span class="project-link coming-soon">Coming Soon</span>`;
 
+          const projectImage =
+              project.imageUrl && project.imageUrl.trim() !== ""
+                  ? `<img src="${project.imageUrl}" alt="${project.title}" class="project-image">`
+                  : "";
+
           container.insertAdjacentHTML(
               "beforeend",
               `
           <div class="project-card">
+            ${projectImage}
+            
             <div class="project-icon">
               <i class="${iconClass}"></i>
             </div>
