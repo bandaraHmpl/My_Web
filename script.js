@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Contact Form Functionality
+// Contact Form Functionality
   const contactForm = document.getElementById('contactForm');
   const formSuccess = document.getElementById('formSuccess');
 
@@ -230,26 +230,36 @@ document.addEventListener('DOMContentLoaded', function() {
       btnLoader.style.display = 'block';
       submitBtn.disabled = true;
 
-      const formData = new FormData(this);
-      const data = Object.fromEntries(formData);
+      const templateParams = {
+        from_name: document.getElementById('name').value,
+        from_email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+      };
 
-      console.log('Form submitted with data:', data);
+      emailjs.send('service_contact#', 'template_jcs3pdc', templateParams)
+          .then(() => {
+            contactForm.style.display = 'none';
+            formSuccess.style.display = 'block';
+            contactForm.reset();
 
-      setTimeout(() => {
-        contactForm.style.display = 'none';
-        formSuccess.style.display = 'block';
+            btnText.textContent = 'Send Message';
+            btnLoader.style.display = 'none';
+            submitBtn.disabled = false;
 
-        this.reset();
+            setTimeout(() => {
+              formSuccess.style.display = 'none';
+              contactForm.style.display = 'block';
+            }, 5000);
+          })
+          .catch((error) => {
+            console.error('Email send error:', error);
+            alert('❌ Failed to send message. Please try again.');
 
-        btnText.textContent = 'Send Message';
-        btnLoader.style.display = 'none';
-        submitBtn.disabled = false;
-
-        setTimeout(() => {
-          formSuccess.style.display = 'none';
-          contactForm.style.display = 'block';
-        }, 5000);
-      }, 2000);
+            btnText.textContent = 'Send Message';
+            btnLoader.style.display = 'none';
+            submitBtn.disabled = false;
+          });
     });
   }
 
