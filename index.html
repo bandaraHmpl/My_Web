@@ -13,401 +13,404 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="light">
-  <!-- Loading Screen -->
-  <div class="loading-screen">
-    <div class="loader"></div>
+<!-- Loading Screen -->
+<div class="loading-screen">
+  <div class="loader"></div>
+</div>
+
+<header>
+  <div class="logo"><h1>bandaraHmpl</h1></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+    <a href="https://github.com/bandaraHmpl" target="_blank">GitHub</a>
+    <button id="theme-toggle" class="theme-btn">🌙</button>
+  </nav>
+  <button class="mobile-menu-btn" aria-label="Toggle navigation menu">☰</button>
+</header>
+
+<!-- HOME SECTION -->
+<section id="home" class="home">
+  <div class="home-container">
+    <div class="hero-content">
+      <div class="greeting">
+        <i class="fas fa-code"></i>
+        Hello! I'm
+      </div>
+
+      <h1>
+        <span class="typing-container" id="typing-text"></span>
+        <span class="cursor" id="cursor"></span>
+      </h1>
+
+      <p class="tagline">
+        A <span class="highlight">Computer Science</span> undergraduate at the <span class="highlight">University of Ruhuna</span>,
+        passionate about <span class="highlight">full-stack development</span> and creating
+        <span class="highlight">digital experiences</span> where code meets creativity.
+      </p>
+
+      <div class="cta-buttons">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fas fa-rocket"></i> View My Work
+        </a>
+        <a href="#contact" class="btn btn-secondary">
+          <i class="fas fa-paper-plane"></i> Get In Touch
+        </a>
+      </div>
+
+      <div class="social-media">
+        <a href="https://wa.me/+94713785398" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.youtube.com/@hmplbandara" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.facebook.com/pradeep.lakshan.92560" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://linkedin.com/in/bandaraHmpl" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://tiktok.com/@pradeep.lakshan192" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+
+    <div class="photo">
+      <img src="pradeep-lakshan.png" alt="Pradeep Lakshan" loading="lazy">
+    </div>
+
+    <!-- Animated Background Elements -->
+    <div class="floating-elements">
+      <div class="floating-element element-1"></div>
+      <div class="floating-element element-2"></div>
+      <div class="floating-element element-3"></div>
+    </div>
   </div>
+</section>
 
-  <header>
-    <div class="logo"><h1>bandaraHmpl</h1></div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#contact">Contact</a>
-      <a href="https://github.com/bandaraHmpl" target="_blank">GitHub</a>
-      <button id="theme-toggle" class="theme-btn">🌙</button>
-    </nav>
-    <button class="mobile-menu-btn" aria-label="Toggle navigation menu">☰</button>
-  </header>
+<!-- ABOUT SECTION -->
+<section id="about">
+  <h2 class="about-title">About Me</h2>
 
-  <!-- HOME SECTION -->
-  <section id="home" class="home">
-    <div class="home-container">
-      <div class="hero-content">
-        <div class="greeting">
-          <i class="fas fa-code"></i>
-          Hello! I'm
+  <div class="about-container">
+    <!-- LEFT SIDE: About Text -->
+    <div class="about-left">
+      <p>
+        I'm an undergraduate student at the <b>University of Ruhuna</b>, currently pursuing a degree in <b>Computer Science</b>.
+        I enjoy exploring both <b>software and web development</b> along with creative work such as <b>AutoCAD</b>,
+        <b>graphic design</b>, and <b>video editing</b>.
+        <br><br>
+        I'm seeking internship opportunities to gain real-world experience and contribute to meaningful projects.
+        My vision is to grow as a well-rounded technologist who combines logic, design, and innovation.
+      </p>
+
+      <!-- Education Timeline -->
+      <div class="education-timeline">
+        <h3>🎓 Education</h3>
+        <div class="timeline-item">
+          <div class="timeline-date">2024 - Present</div>
+          <div class="timeline-content">
+            <h4>University of Ruhuna</h4>
+            <p>BCS in Computer Science</p>
+          </div>
         </div>
-        
-        <h1>
-          <span class="typing-container" id="typing-text"></span>
-          <span class="cursor" id="cursor"></span>
-        </h1>
-        
-        <p class="tagline">
-          A <span class="highlight">Computer Science</span> undergraduate at the <span class="highlight">University of Ruhuna</span>, 
-          passionate about <span class="highlight">full-stack development</span> and creating 
-          <span class="highlight">digital experiences</span> where code meets creativity.
-        </p>
-        
-        <div class="cta-buttons">
-          <a href="#projects" class="btn btn-primary">
-            <i class="fas fa-rocket"></i> View My Work
-          </a>
-          <a href="#contact" class="btn btn-secondary">
-            <i class="fas fa-paper-plane"></i> Get In Touch
-          </a>
-        </div>
-
-        <div class="social-media">
-          <a href="https://wa.me/+94713785398" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          <a href="https://www.youtube.com/@hmplbandara" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-          <a href="https://www.facebook.com/pradeep.lakshan.92560" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-          <a href="https://linkedin.com/in/bandaraHmpl" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="https://tiktok.com/@pradeep.lakshan192" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-        </div>
-      </div>
-
-      <div class="photo">
-        <img src="pradeep-lakshan.png" alt="Pradeep Lakshan" loading="lazy">
-      </div>
-
-      <!-- Animated Background Elements -->
-      <div class="floating-elements">
-        <div class="floating-element element-1"></div>
-        <div class="floating-element element-2"></div>
-        <div class="floating-element element-3"></div>
       </div>
     </div>
-  </section>
 
-  <!-- ABOUT SECTION -->
-  <section id="about">
-    <h2 class="about-title">About Me</h2>
+    <!-- RIGHT SIDE: Tech Arsenal -->
+    <div class="about-right">
+      <h3>🧰 Tech Arsenal</h3>
 
-    <div class="about-container">
-      <!-- LEFT SIDE: About Text -->
-      <div class="about-left">
-        <p>
-          I'm an undergraduate student at the <b>University of Ruhuna</b>, currently pursuing a degree in <b>Computer Science</b>.
-          I enjoy exploring both <b>software and web development</b> along with creative work such as <b>AutoCAD</b>,
-          <b>graphic design</b>, and <b>video editing</b>.
-          <br><br>
-          I'm seeking internship opportunities to gain real-world experience and contribute to meaningful projects.
-          My vision is to grow as a well-rounded technologist who combines logic, design, and innovation.
-        </p>
-        
-        <!-- Education Timeline -->
-        <div class="education-timeline">
-          <h3>🎓 Education</h3>
-          <div class="timeline-item">
-            <div class="timeline-date">2024 - Present</div>
-            <div class="timeline-content">
-              <h4>University of Ruhuna</h4>
-              <p>BCS in Computer Science</p>
+      <!-- Tech Arsenal divided left-right inside -->
+      <div class="tech-arsenal">
+
+        <!-- LEFT side of tech -->
+        <div class="tech-left">
+          <div class="tech-section">
+            <h4>⚙️ Core Technologies</h4>
+            <div class="tech-item">
+              <i class="fab fa-cuttlefish"></i>
+              <span>C</span>
+            </div>
+            <div class="tech-item">
+              <i class="fas fa-code"></i>
+              <span>Data Structures</span>
+            </div>
+            <div class="tech-item">
+              <i class="fab fa-js"></i>
+              <span>JavaScript</span>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- RIGHT SIDE: Tech Arsenal -->
-      <div class="about-right">
-        <h3>🧰 Tech Arsenal</h3>
-
-        <!-- Tech Arsenal divided left-right inside -->
-        <div class="tech-arsenal">
-          
-          <!-- LEFT side of tech -->
-          <div class="tech-left">
-            <div class="tech-section">
-              <h4>⚙️ Core Technologies</h4>
-              <div class="tech-item">
-                <i class="fab fa-cuttlefish"></i>
-                <span>C</span>
-              </div>
-              <div class="tech-item">
-                <i class="fas fa-code"></i>
-                <span>Data Structures</span>
-              </div>
-              <div class="tech-item">
-                <i class="fab fa-js"></i>
-                <span>JavaScript</span>
-              </div>
+        <!-- RIGHT side of tech -->
+        <div class="tech-right">
+          <div class="tech-section">
+            <h4>🌐 Web Technologies</h4>
+            <div class="tech-item">
+              <i class="fab fa-html5"></i>
+              <span>HTML5</span>
+            </div>
+            <div class="tech-item">
+              <i class="fab fa-css3-alt"></i>
+              <span>CSS3</span>
             </div>
           </div>
 
-          <!-- RIGHT side of tech -->
-          <div class="tech-right">
-            <div class="tech-section">
-              <h4>🌐 Web Technologies</h4>
-              <div class="tech-item">
-                <i class="fab fa-html5"></i>
-                <span>HTML5</span>
-              </div>
-              <div class="tech-item">
-                <i class="fab fa-css3-alt"></i>
-                <span>CSS3</span>
-              </div>
+          <div class="tech-section">
+            <h4>🛠 Tools & Systems</h4>
+            <div class="tech-item">
+              <i class="fab fa-linux"></i>
+              <span>Linux</span>
             </div>
-
-            <div class="tech-section">
-              <h4>🛠 Tools & Systems</h4>
-              <div class="tech-item">
-                <i class="fab fa-linux"></i>
-                <span>Linux</span>
-              </div>
-              <div class="tech-item">
-                <i class="fab fa-git"></i>
-                <span>Git</span>
-              </div>
-              <div class="tech-item">
-                <i class="fas fa-code"></i>
-                <span>VSCode</span>
-              </div>
+            <div class="tech-item">
+              <i class="fab fa-git"></i>
+              <span>Git</span>
+            </div>
+            <div class="tech-item">
+              <i class="fas fa-code"></i>
+              <span>VSCode</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- SKILLS SECTION -->
-  <section id="skills">
-    <h2 class="section-title">🚀 Technical Skills</h2>
-    
-    <div class="skills-container">
-      <div class="skill-category">
-        <h3>💻 Programming</h3>
-        <div class="skill">
-          <span>JavaScript</span>
-          <div class="progress-bar">
-            <div class="progress" data-width="85"></div>
-          </div>
-          <span class="skill-percent">85%</span>
-        </div>
-        <div class="skill">
-          <span>HTML/CSS</span>
-          <div class="progress-bar">
-            <div class="progress" data-width="90"></div>
-          </div>
-          <span class="skill-percent">90%</span>
-        </div>
-        <div class="skill">
-          <span>C Programming</span>
-          <div class="progress-bar">
-            <div class="progress" data-width="80"></div>
-          </div>
-          <span class="skill-percent">80%</span>
-        </div>
-      </div>
-
-      <div class="skill-category">
-        <h3>🛠 Tools & Technologies</h3>
-        <div class="skill">
-          <span>Git & GitHub</span>
-          <div class="progress-bar">
-            <div class="progress" data-width="75"></div>
-          </div>
-          <span class="skill-percent">75%</span>
-        </div>
-        <div class="skill">
-          <span>Linux</span>
-          <div class="progress-bar">
-            <div class="progress" data-width="70"></div>
-          </div>
-          <span class="skill-percent">70%</span>
-        </div>
-        <div class="skill">
-          <span>VS Code</span>
-          <div class="progress-bar">
-            <div class="progress" data-width="85"></div>
-          </div>
-          <span class="skill-percent">85%</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS SECTION -->
-  <section id="projects">
-    <h2 class="section-title">💼 Projects</h2>
-    <div class="project-grid"></div>
-  </section>
-
-  <!-- ACHIEVEMENTS SECTION -->
-  <section id="achievements">
-    <h2 class="section-title">🏆 Achievements</h2>
-    
-    <div class="achievement-grid">
-      <div class="achievement-card">
-        <div class="achievement-icon">
-          <i class="fas fa-code"></i>
-        </div>
-        <h3>University Projects</h3>
-        <p>Completed multiple academic projects with excellent grades in Data Structures and Algorithms.</p>
-        <span class="achievement-date">2024</span>
-      </div>
-      
-      <div class="achievement-card">
-        <div class="achievement-icon">
-          <i class="fas fa-users"></i>
-        </div>
-        <h3>Team Leadership</h3>
-        <p>Led team projects in university, coordinating between members and ensuring project success.</p>
-        <span class="achievement-date">2024</span>
-      </div>
-      
-      <div class="achievement-card">
-        <div class="achievement-icon">
-          <i class="fas fa-rocket"></i>
-        </div>
-        <h3>Self-Taught Developer</h3>
-        <p>Learned web development independently while pursuing degree, building multiple projects.</p>
-        <span class="achievement-date">2024-Present</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section id="contact">
-    <div class="contact-container">
-      <h2 class="section-title">📞 Get In Touch</h2>
-      <p class="section-subtitle">Let's work together to bring your ideas to life</p>
-      
-      <div class="contact-content">
-        <!-- Contact Information Cards -->
-        <div class="contact-info">
-          <div class="info-card">
-            <div class="info-icon">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div class="info-content">
-              <h3>Email</h3>
-              <p>lakshanbandara455@gmail.com</p>
-              <a href="mailto:lakshanbandara455@gmail.com" class="info-link">Send Email</a>
-            </div>
-          </div>
-          
-          <div class="info-card">
-            <div class="info-icon">
-              <i class="fas fa-phone"></i>
-            </div>
-            <div class="info-content">
-              <h3>Phone</h3>
-              <p>+94 71 378 5398</p>
-              <a href="https://wa.me/+94713785398" target="_blank" class="info-link">WhatsApp</a>
-            </div>
-          </div>
-          
-          <div class="info-card">
-            <div class="info-icon">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div class="info-content">
-              <h3>Location</h3>
-              <p>University of Ruhuna</p>
-              <p>Sri Lanka</p>
-            </div>
-          </div>
-          
-          <div class="info-card">
-            <div class="info-icon">
-              <i class="fas fa-clock"></i>
-            </div>
-            <div class="info-content">
-              <h3>Availability</h3>
-              <p>Mon - Fri: 9AM - 6PM</p>
-              <p>Response within 24 hours</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Contact Form -->
-        <div class="contact-form-container">
-          <form class="contact-form" id="contactForm">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" required>
-              <i class="fas fa-user input-icon"></i>
-            </div>
-            
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" required>
-              <i class="fas fa-envelope input-icon"></i>
-            </div>
-            
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" name="subject" required>
-              <i class="fas fa-tag input-icon"></i>
-            </div>
-            
-            <div class="form-group">
-              <label for="message">Your Message</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
-              <i class="fas fa-comment input-icon textarea-icon"></i>
-            </div>
-            
-            <button type="submit" class="submit-btn">
-              <span class="btn-text">Send Message</span>
-              <div class="btn-loader">
-                <div class="loader"></div>
-              </div>
-              <i class="fas fa-paper-plane btn-icon"></i>
-            </button>
-          </form>
-          
-          <div class="form-success" id="formSuccess">
-            <i class="fas fa-check-circle"></i>
-            <h3>Message Sent Successfully!</h3>
-            <p>Thank you for reaching out. I'll get back to you soon.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Quick Social Links -->
-      <div class="social-contact">
-        <h3>Connect with me</h3>
-        <div class="social-buttons">
-          <a href="https://linkedin.com/in/bandaraHmpl" target="_blank" class="social-btn linkedin">
-            <i class="fab fa-linkedin"></i>
-            <span>LinkedIn</span>
-          </a>
-          <a href="https://github.com/bandaraHmpl" target="_blank" class="social-btn github">
-            <i class="fab fa-github"></i>
-            <span>GitHub</span>
-          </a>
-          <a href="https://www.facebook.com/pradeep.lakshan.92560" target="_blank" class="social-btn facebook">
-            <i class="fab fa-facebook"></i>
-            <span>Facebook</span>
-          </a>
-          <a href="https://www.youtube.com/@hmplbandara" target="_blank" class="social-btn youtube">
-            <i class="fab fa-youtube"></i>
-            <span>YouTube</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-content">
-      <p>© 2026 bandaraHmpl | Full-Stack Portfolio built with 💻 HTML, CSS, JavaScript, Spring Boot & MySQL</p>
-      <p class="footer-sub">Computer Science Undergraduate | University of Ruhuna</p>
-    </div>
-  </footer>
-
-  <button id="backToTop" class="back-btn" aria-label="Back to top">⬆</button>
-
-  <div class="image-modal" id="imageModal">
-    <span class="image-modal-close" id="imageModalClose">&times;</span>
-    <img class="image-modal-content" id="imageModalImg" alt="Preview Image">
   </div>
+</section>
 
-  <script src="script.js"></script>
+<!-- SKILLS SECTION -->
+<section id="skills">
+  <h2 class="section-title">🚀 Technical Skills</h2>
+
+  <div class="skills-container">
+    <div class="skill-category">
+      <h3>💻 Programming</h3>
+      <div class="skill">
+        <span>JavaScript</span>
+        <div class="progress-bar">
+          <div class="progress" data-width="85"></div>
+        </div>
+        <span class="skill-percent">85%</span>
+      </div>
+      <div class="skill">
+        <span>HTML/CSS</span>
+        <div class="progress-bar">
+          <div class="progress" data-width="90"></div>
+        </div>
+        <span class="skill-percent">90%</span>
+      </div>
+      <div class="skill">
+        <span>C Programming</span>
+        <div class="progress-bar">
+          <div class="progress" data-width="80"></div>
+        </div>
+        <span class="skill-percent">80%</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h3>🛠 Tools & Technologies</h3>
+      <div class="skill">
+        <span>Git & GitHub</span>
+        <div class="progress-bar">
+          <div class="progress" data-width="75"></div>
+        </div>
+        <span class="skill-percent">75%</span>
+      </div>
+      <div class="skill">
+        <span>Linux</span>
+        <div class="progress-bar">
+          <div class="progress" data-width="70"></div>
+        </div>
+        <span class="skill-percent">70%</span>
+      </div>
+      <div class="skill">
+        <span>VS Code</span>
+        <div class="progress-bar">
+          <div class="progress" data-width="85"></div>
+        </div>
+        <span class="skill-percent">85%</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS SECTION -->
+<section id="projects">
+  <h2 class="section-title">💼 Projects</h2>
+  <div class="project-grid"></div>
+</section>
+
+<!-- ACHIEVEMENTS SECTION -->
+<section id="achievements">
+  <h2 class="section-title">🏆 Achievements</h2>
+
+  <div class="achievement-grid">
+    <div class="achievement-card">
+      <div class="achievement-icon">
+        <i class="fas fa-code"></i>
+      </div>
+      <h3>University Projects</h3>
+      <p>Completed multiple academic projects with excellent grades in Data Structures and Algorithms.</p>
+      <span class="achievement-date">2024</span>
+    </div>
+
+    <div class="achievement-card">
+      <div class="achievement-icon">
+        <i class="fas fa-users"></i>
+      </div>
+      <h3>Team Leadership</h3>
+      <p>Led team projects in university, coordinating between members and ensuring project success.</p>
+      <span class="achievement-date">2024</span>
+    </div>
+
+    <div class="achievement-card">
+      <div class="achievement-icon">
+        <i class="fas fa-rocket"></i>
+      </div>
+      <h3>Self-Taught Developer</h3>
+      <p>Learned web development independently while pursuing degree, building multiple projects.</p>
+      <span class="achievement-date">2024-Present</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+  <div class="contact-container">
+    <h2 class="section-title">📞 Get In Touch</h2>
+    <p class="section-subtitle">Let's work together to bring your ideas to life</p>
+
+    <div class="contact-content">
+      <!-- Contact Information Cards -->
+      <div class="contact-info">
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="info-content">
+            <h3>Email</h3>
+            <p>lakshanbandara455@gmail.com</p>
+            <a href="mailto:lakshanbandara455@gmail.com" class="info-link">Send Email</a>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="info-content">
+            <h3>Phone</h3>
+            <p>+94 71 378 5398</p>
+            <a href="https://wa.me/+94713785398" target="_blank" class="info-link">WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="info-content">
+            <h3>Location</h3>
+            <p>University of Ruhuna</p>
+            <p>Sri Lanka</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="info-content">
+            <h3>Availability</h3>
+            <p>Mon - Fri: 9AM - 6PM</p>
+            <p>Response within 24 hours</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-container">
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+            <i class="fas fa-user input-icon"></i>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+            <i class="fas fa-envelope input-icon"></i>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+            <i class="fas fa-tag input-icon"></i>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <i class="fas fa-comment input-icon textarea-icon"></i>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <span class="btn-text">Send Message</span>
+            <div class="btn-loader">
+              <div class="loader"></div>
+            </div>
+            <i class="fas fa-paper-plane btn-icon"></i>
+          </button>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <i class="fas fa-check-circle"></i>
+          <h3>Message Sent Successfully!</h3>
+          <p>Thank you for reaching out. I'll get back to you soon.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Social Links -->
+    <div class="social-contact">
+      <h3>Connect with me</h3>
+      <div class="social-buttons">
+        <a href="https://linkedin.com/in/bandaraHmpl" target="_blank" class="social-btn linkedin">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/bandaraHmpl" target="_blank" class="social-btn github">
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.facebook.com/pradeep.lakshan.92560" target="_blank" class="social-btn facebook">
+          <i class="fab fa-facebook"></i>
+          <span>Facebook</span>
+        </a>
+        <a href="https://www.youtube.com/@hmplbandara" target="_blank" class="social-btn youtube">
+          <i class="fab fa-youtube"></i>
+          <span>YouTube</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <p>© 2026 bandaraHmpl | Full-Stack Portfolio built with 💻 HTML, CSS, JavaScript, Spring Boot & MySQL</p>
+    <p class="footer-sub">Computer Science Undergraduate | University of Ruhuna</p>
+  </div>
+</footer>
+
+<button id="backToTop" class="back-btn" aria-label="Back to top">⬆</button>
+
+<!-- IMAGE MODAL -->
+<div class="image-modal" id="imageModal">
+  <span class="image-modal-close" id="imageModalClose">&times;</span>
+  <span class="modal-prev" id="prevBtn">&#10094;</span>
+  <img class="image-modal-content" id="imageModalImg" alt="Preview Image">
+  <span class="modal-next" id="nextBtn">&#10095;</span>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

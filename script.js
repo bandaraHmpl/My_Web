@@ -335,7 +335,7 @@ if (skillsSection) {
 const apiUrl = "https://my-web-backend-production.up.railway.app/projects";
 
 function getProjectIcon(title) {
-  const lowerTitle = title.toLowerCase();
+  const lowerTitle = (title || "").toLowerCase();
 
   if (lowerTitle.includes("web") || lowerTitle.includes("portfolio")) {
     return "fas fa-globe";
@@ -370,6 +370,20 @@ function getTechTags(technologies) {
       .join("");
 }
 
+function createImageItem(src, extraClass = "", allImages = [], index = 0) {
+  return `
+    <div class="gallery-item">
+      <img
+        src="${src}"
+        alt="Project image"
+        class="gallery-img ${extraClass}"
+        data-images='${JSON.stringify(allImages)}'
+        data-index="${index}"
+      >
+    </div>
+  `;
+}
+
 function createProjectGallery(images = []) {
   if (!images || images.length === 0) {
     return "";
@@ -380,7 +394,7 @@ function createProjectGallery(images = []) {
   if (count === 1) {
     return `
       <div class="project-gallery gallery-1">
-        <img src="${images[0]}" alt="Project image" class="gallery-img">
+        ${createImageItem(images[0], "", images, 0)}
       </div>
     `;
   }
@@ -388,8 +402,8 @@ function createProjectGallery(images = []) {
   if (count === 2) {
     return `
       <div class="project-gallery gallery-2">
-        <img src="${images[0]}" alt="Project image" class="gallery-img">
-        <img src="${images[1]}" alt="Project image" class="gallery-img">
+        ${createImageItem(images[0], "", images, 0)}
+        ${createImageItem(images[1], "", images, 1)}
       </div>
     `;
   }
@@ -397,9 +411,9 @@ function createProjectGallery(images = []) {
   if (count === 3) {
     return `
       <div class="project-gallery gallery-3">
-        <img src="${images[0]}" alt="Project image" class="gallery-img big-img">
-        <img src="${images[1]}" alt="Project image" class="gallery-img">
-        <img src="${images[2]}" alt="Project image" class="gallery-img">
+        ${createImageItem(images[0], "big-img", images, 0)}
+        ${createImageItem(images[1], "", images, 1)}
+        ${createImageItem(images[2], "", images, 2)}
       </div>
     `;
   }
@@ -407,10 +421,10 @@ function createProjectGallery(images = []) {
   if (count === 4) {
     return `
       <div class="project-gallery gallery-4">
-        <img src="${images[0]}" alt="Project image" class="gallery-img">
-        <img src="${images[1]}" alt="Project image" class="gallery-img">
-        <img src="${images[2]}" alt="Project image" class="gallery-img">
-        <img src="${images[3]}" alt="Project image" class="gallery-img">
+        ${createImageItem(images[0], "", images, 0)}
+        ${createImageItem(images[1], "", images, 1)}
+        ${createImageItem(images[2], "", images, 2)}
+        ${createImageItem(images[3], "", images, 3)}
       </div>
     `;
   }
@@ -419,12 +433,12 @@ function createProjectGallery(images = []) {
 
   return `
     <div class="project-gallery gallery-many">
-      <img src="${images[0]}" alt="Project image" class="gallery-img">
-      <img src="${images[1]}" alt="Project image" class="gallery-img">
-      <img src="${images[2]}" alt="Project image" class="gallery-img">
+      ${createImageItem(images[0], "", images, 0)}
+      ${createImageItem(images[1], "", images, 1)}
+      ${createImageItem(images[2], "", images, 2)}
       <div class="gallery-more">
-        <img src="${images[3]}" alt="Project image" class="gallery-img">
-        <span class="more-overlay">+${remaining}</span>
+        ${createImageItem(images[3], "", images, 3)}
+        <span class="more-overlay" data-images='${JSON.stringify(images)}' data-index="3">+${remaining}</span>
       </div>
     </div>
   `;
@@ -461,7 +475,7 @@ function loadProjects() {
               `
           <div class="project-card">
             ${projectGallery}
-            
+
             <div class="project-icon">
               <i class="${iconClass}"></i>
             </div>
@@ -488,25 +502,99 @@ function loadProjects() {
 
 loadProjects();
 
+// ===== IMAGE MODAL / SLIDER =====
+let currentImages = [];
+let currentIndex = 0;
+
 const imageModal = document.getElementById("imageModal");
 const imageModalImg = document.getElementById("imageModalImg");
 const imageModalClose = document.getElementById("imageModalClose");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+function openModal(images, index) {
+  currentImages = images;
+  currentIndex = index;
+  updateModalImage();
+  imageModal.classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+  imageModal.classList.remove("show");
+  imageModalImg.src = "";
+  document.body.style.overflow = "";
+}
+
+function updateModalImage() {
+  if (!currentImages.length) return;
+  imageModalImg.src = currentImages[currentIndex];
+}
+
+function nextImage() {
+  if (!currentImages.length) return;
+  currentIndex = (currentIndex + 1) % currentImages.length;
+  updateModalImage();
+}
+
+function prevImage() {
+  if (!currentImages.length) return;
+  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+  updateModalImage();
+}
 
 document.addEventListener("click", function (e) {
   if (e.target.classList.contains("gallery-img")) {
-    imageModalImg.src = e.target.src;
-    imageModal.classList.add("show");
+    const images = JSON.parse(e.target.dataset.images || "[]");
+    const index = Number(e.target.dataset.index || 0);
+    openModal(images, index);
+  }
+
+  if (e.target.classList.contains("more-overlay")) {
+    const images = JSON.parse(e.target.dataset.images || "[]");
+    const index = Number(e.target.dataset.index || 0);
+    openModal(images, index);
   }
 });
 
-imageModalClose.addEventListener("click", function () {
-  imageModal.classList.remove("show");
-  imageModalImg.src = "";
-});
+if (imageModalClose) {
+  imageModalClose.addEventListener("click", closeModal);
+}
 
-imageModal.addEventListener("click", function (e) {
-  if (e.target === imageModal) {
-    imageModal.classList.remove("show");
-    imageModalImg.src = "";
+if (imageModal) {
+  imageModal.addEventListener("click", function (e) {
+    if (e.target === imageModal) {
+      closeModal();
+    }
+  });
+}
+
+if (nextBtn) {
+  nextBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    nextImage();
+  });
+}
+
+if (prevBtn) {
+  prevBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    prevImage();
+  });
+}
+
+document.addEventListener("keydown", function (e) {
+  if (!imageModal.classList.contains("show")) return;
+
+  if (e.key === "Escape") {
+    closeModal();
+  }
+
+  if (e.key === "ArrowRight") {
+    nextImage();
+  }
+
+  if (e.key === "ArrowLeft") {
+    prevImage();
   }
 });
