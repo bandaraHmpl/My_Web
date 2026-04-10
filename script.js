@@ -107,19 +107,23 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll('section').forEach(sec => observer.observe(sec));
 
-// Back to Top Button
+// Back to Top Button (Improved)
 const backToTopBtn = document.getElementById('backToTop');
 
 window.addEventListener('scroll', () => {
-  backToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+  if (window.scrollY > 300) {
+    backToTopBtn.classList.add('show');
+  } else {
+    backToTopBtn.classList.remove('show');
+  }
 });
 
-backToTopBtn.onclick = () => {
+backToTopBtn.addEventListener('click', () => {
   window.scrollTo({
     top: 0,
     behavior: 'smooth'
   });
-};
+});
 
 // Header Functionality
 document.addEventListener('DOMContentLoaded', function() {
@@ -608,3 +612,20 @@ document.addEventListener("keydown", function (e) {
     prevImage();
   }
 });
+
+/* ===== ABOUT SECTION SCROLL ANIMATION ===== */
+const fadeElements = document.querySelectorAll(".fade-up");
+
+const revealOnScroll = () => {
+  fadeElements.forEach((element) => {
+    const elementTop = element.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (elementTop < windowHeight - 80) {
+      element.classList.add("show");
+    }
+  });
+};
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
